@@ -22,7 +22,15 @@ return require("packer").startup(function(use)
   use "Mofiqul/dracula.nvim"
 
   -- file explorer
-  use "nvim-tree/nvim-tree.lua"
+  use {
+    "nvim-tree/nvim-tree.lua",
+    requires = { "nvim-tree/nvim-web-devicons", opt=true }
+  }
+
+  use {
+    "nvim-lualine/lualine.nvim",
+    requires = { "nvim-tree/nvim-web-devicons", opt = true }
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

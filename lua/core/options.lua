@@ -1,33 +1,28 @@
 local options = {
-  -- set line numbers
-  number = true,
-  -- show the command that's being entered
-  showcmd = true,
-  -- make tab expand to spaces
-  expandtab = true,
-  -- number of columns an existing <TAB> will occupy
-  tabstop = 2,
-  -- when indenting with '>', use 2 column width
-  shiftwidth = 2,
-  -- pressing tab inserts 2 columns
-  softtabstop = 2,
-  -- make indentation a multiple of shiftwidth always
-  shiftround = true,
+  number = true,        -- set line numbers
 
-  -- more comfortable splits
-  splitbelow = true,
-  splitright = true,
+  showcmd = true,       -- show the command that's being entered
 
-  -- makes the cursor remain in the middle of the page
-  scrolloff = 999,
+  expandtab = true,     -- make tab expand to spaces
+  tabstop = 2,          -- number of columns an existing <TAB> will occupy
+  shiftwidth = 2,       -- when indenting with '>', use 2 column width
+  softtabstop = 2,      -- pressing tab inserts 2 columns
+  shiftround = true,    -- make indentation a multiple of shiftwidth always
 
-  -- make vim remember a lot
-  history = 1000
+  splitbelow = true,    -- more comfortable splits
+  splitright = true,    -- more comfortable splits
+
+  scrolloff = 999,      -- makes the cursor remain in the middle of the page
+
+  history = 1000,       -- make vim remember a lot
+
+  showmatch = true,     -- Show matching bracket
+  matchtime = 15        -- Matching bracket show time
 }
-
 
 for key, value in pairs(options) do
   vim.opt[key] = value
 end
 
-vim.g.nvim_tree_show_icons = false
+-- Disable matching parenthesis
+vim.g.loaded_matchparen = 1
