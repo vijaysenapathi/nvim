@@ -32,6 +32,26 @@ return require("packer").startup(function(use)
     requires = { "nvim-tree/nvim-web-devicons", opt = true }
   }
 
+  -- shows keyboard shortcuts
+  use "folke/which-key.nvim"
+
+  -- fuzzy searcher
+  use {
+    "nvim-telescope/telescope.nvim", tag = "0.1.1",
+    requires = { "nvim-lua/plenary.nvim" }
+  }
+
+  -- syntax highlighting
+  use "nvim-treesitter/nvim-treesitter"
+
+
+  -- Language Server Protocol
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig"
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
