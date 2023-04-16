@@ -9,12 +9,4 @@ vim.g.nvim_tree_show_icons = {
 }
 
 require("nvim-tree").setup({
-  renderer = {
-    icons = {
-      show = {
-        file = false,
-        folder = false
-      }
-    }
-  }
 })
