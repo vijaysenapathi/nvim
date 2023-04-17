@@ -17,7 +17,7 @@ return require("packer").startup(function(use)
   -- My plugins here
   -- use "foo1/bar1.nvim"
   -- use "foo2/bar2.nvim"
-  
+
   -- dracula colorscheme
   use "Mofiqul/dracula.nvim"
 
@@ -27,10 +27,14 @@ return require("packer").startup(function(use)
     requires = { "nvim-tree/nvim-web-devicons", opt=true }
   }
 
+  -- status line
   use {
     "nvim-lualine/lualine.nvim",
     requires = { "nvim-tree/nvim-web-devicons", opt = true }
   }
+
+  -- tab line
+  use 'kdheepak/tabline.nvim'
 
   -- shows keyboard shortcuts
   use "folke/which-key.nvim"
@@ -44,7 +48,6 @@ return require("packer").startup(function(use)
   -- syntax highlighting
   use "nvim-treesitter/nvim-treesitter"
 
-
   -- Language Server Protocol
   use {
     "williamboman/mason.nvim",
@@ -52,9 +55,24 @@ return require("packer").startup(function(use)
     "neovim/nvim-lspconfig"
   }
 
+  -- auto complete
+  use "hrsh7th/nvim-cmp" -- The completion plugin
+  use "hrsh7th/cmp-nvim-lsp" -- nvim builtin lsp
+  use "hrsh7th/cmp-buffer" -- buffer completions
+  use "hrsh7th/cmp-path" -- path completions
+  use "hrsh7th/cmp-cmdline" -- cmdline completions
+
+  -- debugging
+  use "mfussenegger/nvim-dap"
+  use "rcarriga/nvim-dap-ui"
+  use "mfussenegger/nvim-dap-python"
+
+  use "numToStr/Comment.nvim"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
     require("packer").sync()
   end
 end)
+

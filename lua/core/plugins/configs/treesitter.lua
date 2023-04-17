@@ -6,5 +6,12 @@ require("nvim-treesitter.configs").setup({
   auto_install = true,
   hightlight = {
     enable = true
+  },
+  indent = {
+    enable = true
   }
 })
+--[[
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+]]

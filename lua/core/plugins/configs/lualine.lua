@@ -5,10 +5,14 @@ require('lualine').setup {
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {
-      statusline = {},
-      winbar = {},
+      statusline = {'NvimTree'},
+      winbar = {'Dap Scopes'},
     },
-    ignore_focus = {},
+    ignore_focus = {
+      "dapui_watches", "dapui_breakpoints",
+      "dapui_scopes", "dapui_console",
+      "dapui_stacks", "dap-repl"
+    },
     always_divide_middle = true,
     globalstatus = false,
     refresh = {
@@ -22,7 +26,7 @@ require('lualine').setup {
     lualine_b = {'branch', 'diff', 'diagnostics'},
     lualine_c = {'filename'},
     lualine_x = {
-      'encoding', 
+      'encoding',
       {
         'fileformat',
         symbols = {
@@ -30,7 +34,7 @@ require('lualine').setup {
           dos = 'dos',
           mac = 'mac',
         }
-      }, 
+      },
       'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
