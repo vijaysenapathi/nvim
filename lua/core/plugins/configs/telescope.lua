@@ -1,8 +1,9 @@
 require("telescope").setup({
   defaults = {
     layout_strategy = "horizontal",
-    layout_config = { width = 0.99, height = 0.99 },
-    borderchars = {"─", "│", "─", "│", "┌", "┐", "┘", "└"}
+    layout_config = { width = 0.9, height = 0.9 },
+    borderchars = {"─", "│", "─", "│", "┌", "┐", "┘", "└"},
+    border = true
   },
 })
 
@@ -14,3 +15,4 @@ vim.keymap.set("n", "<C-F>", builtin.live_grep, {})
 --vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+

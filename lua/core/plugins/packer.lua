@@ -47,7 +47,9 @@ return require("packer").startup(function(use)
   -- syntax highlighting
   use "nvim-treesitter/nvim-treesitter"
 
---[[
+  -- better terminal
+  use "akinsho/toggleterm.nvim"
+
   -- Language Server Protocol
   use {
     "williamboman/mason.nvim",
@@ -55,6 +57,7 @@ return require("packer").startup(function(use)
     "neovim/nvim-lspconfig"
   }
 
+--[[
   -- auto complete
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-nvim-lsp" -- nvim builtin lsp
