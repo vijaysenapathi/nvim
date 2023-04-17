@@ -5,8 +5,7 @@ local ensure_packer = function()
   if fn.empty(fn.glob(install_path)) > 0 then
     fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
     vim.cmd [[packadd packer.nvim]]
-    return true
-  end
+    return true end
   return false
 end
 
@@ -48,6 +47,7 @@ return require("packer").startup(function(use)
   -- syntax highlighting
   use "nvim-treesitter/nvim-treesitter"
 
+--[[
   -- Language Server Protocol
   use {
     "williamboman/mason.nvim",
@@ -66,7 +66,7 @@ return require("packer").startup(function(use)
   use "mfussenegger/nvim-dap"
   use "rcarriga/nvim-dap-ui"
   use "mfussenegger/nvim-dap-python"
-
+]]
   use "numToStr/Comment.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
