@@ -1,3 +1,19 @@
+local function custom_file_info()
+  --return buffer.filetype .. buffer.fileencoding .. buffer.fileformat
+  local buffer = vim.bo
+  return
+    buffer.fileencoding .."[".. buffer.fileformat.."]"
+end
+
+local function custom_file_position()
+  local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+  col = col + 1
+  local total_buffer_lines = vim.api.nvim_buf_line_count(0)
+  local percentage = math.floor(100 * row / total_buffer_lines)
+  return percentage .. "%% " .. row .. ":" .. total_buffer_lines .. "☰ :" .. col
+end
+
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -23,10 +39,26 @@ require('lualine').setup {
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_b = {
+      {
+        'branch',
+        draw_empty = true
+      },
+      {
+        'diagnostics',
+        symbols = {
+          error = '■ ',
+          warn = '■ ',
+          info = '■ ',
+          hint = '■ '
+        },
+      }
+    },
     lualine_c = {'filename'},
-    lualine_x = {
-      'encoding',
+    lualine_x = {'filetype'},
+    lualine_y = {
+      custom_file_info
+      --[[ 'encoding',
       {
         'fileformat',
         symbols = {
@@ -34,10 +66,9 @@ require('lualine').setup {
           dos = 'dos',
           mac = 'mac',
         }
-      },
-      'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
+      } ]]
+    },
+    lualine_z = {custom_file_position}
   },
   inactive_sections = {
     lualine_a = {},
@@ -47,7 +78,27 @@ require('lualine').setup {
     lualine_y = {},
     lualine_z = {}
   },
-  tabline = {},
+  tabline = {
+    lualine_a = {
+      {
+        'buffers',
+        symbols = {
+          modified = '*',      -- Text to show when the buffer is modified
+          alternate_file = '#', -- Text to show to identify the alternate file
+          directory =  '',     -- Text to show when the buffer is a directory
+        }
+      }
+    },
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {
+      'diff',
+    },
+    lualine_z = {
+      'tabs'
+    }
+  },
   winbar = {},
   inactive_winbar = {},
   extensions = {}

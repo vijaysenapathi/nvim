@@ -5,8 +5,7 @@ local ensure_packer = function()
   if fn.empty(fn.glob(install_path)) > 0 then
     fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
     vim.cmd [[packadd packer.nvim]]
-    return true
-  end
+    return true end
   return false
 end
 
@@ -18,8 +17,10 @@ return require("packer").startup(function(use)
   -- use "foo1/bar1.nvim"
   -- use "foo2/bar2.nvim"
 
-  -- dracula colorscheme
+  -- colorschemes
   use "Mofiqul/dracula.nvim"
+  -- use "arcticicestudio/nord-vim"
+  --use "altercation/vim-colors-solarized"
 
   -- file explorer
   use {
@@ -34,7 +35,7 @@ return require("packer").startup(function(use)
   }
 
   -- tab line
-  use 'kdheepak/tabline.nvim'
+  -- use 'kdheepak/tabline.nvim'
 
   -- shows keyboard shortcuts
   use "folke/which-key.nvim"
@@ -48,6 +49,9 @@ return require("packer").startup(function(use)
   -- syntax highlighting
   use "nvim-treesitter/nvim-treesitter"
 
+  -- better terminal
+  use "akinsho/toggleterm.nvim"
+
   -- Language Server Protocol
   use {
     "williamboman/mason.nvim",
@@ -55,6 +59,7 @@ return require("packer").startup(function(use)
     "neovim/nvim-lspconfig"
   }
 
+--[[
   -- auto complete
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-nvim-lsp" -- nvim builtin lsp
@@ -66,8 +71,14 @@ return require("packer").startup(function(use)
   use "mfussenegger/nvim-dap"
   use "rcarriga/nvim-dap-ui"
   use "mfussenegger/nvim-dap-python"
-
+]]
   use "numToStr/Comment.nvim"
+
+  -- Git tools
+  use "tpope/vim-fugitive"
+
+  -- For working well with tmux
+  use "christoomey/vim-tmux-navigator"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
