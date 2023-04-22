@@ -37,7 +37,13 @@ require("lspconfig").lua_ls.setup({
 })
 
 require("lspconfig").pylsp.setup({
-  on_attach = on_attach
+  on_attach = on_attach,
+  plugins = {
+    pycodestyle = {
+      -- ignore = {'W391'},
+      maxLineLength = 120
+    }
+  }
 })
 
 require("lspconfig").clangd.setup({})

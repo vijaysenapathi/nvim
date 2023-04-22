@@ -1,4 +1,4 @@
-require("tabline").setup({
+--[[ require("tabline").setup({
   -- Defaults configuration options
   enable = true,
   options = {
@@ -17,4 +17,4 @@ require("tabline").setup({
   },
 })
 
-
+]]

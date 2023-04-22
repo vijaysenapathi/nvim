@@ -17,8 +17,10 @@ return require("packer").startup(function(use)
   -- use "foo1/bar1.nvim"
   -- use "foo2/bar2.nvim"
 
-  -- dracula colorscheme
+  -- colorschemes
   use "Mofiqul/dracula.nvim"
+  -- use "arcticicestudio/nord-vim"
+  --use "altercation/vim-colors-solarized"
 
   -- file explorer
   use {
@@ -33,7 +35,7 @@ return require("packer").startup(function(use)
   }
 
   -- tab line
-  use 'kdheepak/tabline.nvim'
+  -- use 'kdheepak/tabline.nvim'
 
   -- shows keyboard shortcuts
   use "folke/which-key.nvim"
@@ -71,6 +73,12 @@ return require("packer").startup(function(use)
   use "mfussenegger/nvim-dap-python"
 ]]
   use "numToStr/Comment.nvim"
+
+  -- Git tools
+  use "tpope/vim-fugitive"
+
+  -- For working well with tmux
+  use "christoomey/vim-tmux-navigator"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

@@ -17,7 +17,9 @@ local options = {
   history = 1000,       -- make vim remember a lot
 
   showmatch = true,     -- Show matching bracket
-  matchtime = 15        -- Matching bracket show time
+  matchtime = 15,       -- Matching bracket show time
+
+  shell = "/bin/bash -i"
 }
 
 for key, value in pairs(options) do
