@@ -19,7 +19,9 @@ local options = {
   showmatch = true,     -- Show matching bracket
   matchtime = 15,       -- Matching bracket show time
 
-  shell = "/bin/bash -i"
+  shell = "/opt/homebrew/bin/fish", -- default shell to fish
+  exrc = true,           -- Enabling project specific configuration to be set
+  secure = true         -- disabling random shell scripts to be run from files
 }
 
 for key, value in pairs(options) do

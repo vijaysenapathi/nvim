@@ -17,7 +17,7 @@ end
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'dracula',
+    theme = 'catppuccin',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {
@@ -78,27 +78,27 @@ require('lualine').setup {
     lualine_y = {},
     lualine_z = {}
   },
-  tabline = {
-    lualine_a = {
-      {
-        'buffers',
-        symbols = {
-          modified = '*',      -- Text to show when the buffer is modified
-          alternate_file = '#', -- Text to show to identify the alternate file
-          directory =  '',     -- Text to show when the buffer is a directory
-        }
-      }
-    },
-    lualine_b = {},
-    lualine_c = {},
-    lualine_x = {},
-    lualine_y = {
-      'diff',
-    },
-    lualine_z = {
-      'tabs'
-    }
-  },
+  -- tabline = {
+  --   lualine_a = {
+  --     {
+  --       'buffers',
+  --       symbols = {
+  --         modified = '*',      -- Text to show when the buffer is modified
+  --         alternate_file = '#', -- Text to show to identify the alternate file
+  --         directory =  '',     -- Text to show when the buffer is a directory
+  --       }
+  --     }
+  --   },
+  --   lualine_b = {},
+  --   lualine_c = {},
+  --   lualine_x = {},
+  --   lualine_y = {
+  --     'diff',
+  --   },
+  --   lualine_z = {
+  --     'tabs'
+  --   }
+  -- },
   winbar = {},
   inactive_winbar = {},
   extensions = {}

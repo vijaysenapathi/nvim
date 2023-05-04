@@ -8,9 +8,10 @@ local on_attach = function(_, _)
   vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 
 
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-  vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {}) vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, {})
-  vim.keymap.set("n", "H", vim.lsp.buf.hover, {})
+  vim.keymap.set("n", "<F6>", vim.lsp.buf.definition, {})
+  vim.keymap.set("n", "<F7>", vim.lsp.buf.implementation, {})
+  vim.keymap.set("n", "<F8>", require("telescope.builtin").lsp_references, {})
+  vim.keymap.set("n", "<F9>", vim.lsp.buf.hover, {})
 end
 
 require("lspconfig").lua_ls.setup({
@@ -38,14 +39,18 @@ require("lspconfig").lua_ls.setup({
 
 require("lspconfig").pylsp.setup({
   on_attach = on_attach,
-  plugins = {
-    pycodestyle = {
-      -- ignore = {'W391'},
-      maxLineLength = 120
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          ignore = {'W391'},
+          maxLineLength = 120
+        }
+      }
     }
   }
 })
 
-require("lspconfig").clangd.setup({})
-
-
+require("lspconfig").clangd.setup({
+  on_attach = on_attach,
+})

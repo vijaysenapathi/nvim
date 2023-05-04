@@ -22,8 +22,8 @@ require("nvim-tree").setup({
     },
     icons = {
       show = {
-        file = false,
-        folder = false,
+        file = true,
+        folder = true,
         folder_arrow = true,
         git = false,
       }
@@ -37,8 +37,8 @@ vim.keymap.set("n", "<F13>", ":NvimTreeFocus<CR>") -- Shift F1
 
 -- vim.highlight.create("NvimTreeIndentMarker", {ctermfg="Green", guifg="Red"}, false)
 -- Dracula theme
-vim.api.nvim_set_hl(0, "NvimTreeFolderName", {fg="#bd93f9", bg=nil})
-vim.api.nvim_set_hl(0, "NvimTreeOpenedFolderName", {link="NvimTreeFolderName"})
-vim.api.nvim_set_hl(0, "NvimTreeIndentMarker", {fg="#6272a4", bg=nil})
-vim.api.nvim_set_hl(0, "NvimTreeNormal", {fg="#f8f8f2", bg="#282a36"})
+-- vim.api.nvim_set_hl(0, "NvimTreeFolderName", {fg="#bd93f9", bg=nil})
+-- vim.api.nvim_set_hl(0, "NvimTreeOpenedFolderName", {link="NvimTreeFolderName"})
+-- vim.api.nvim_set_hl(0, "NvimTreeIndentMarker", {fg="#6272a4", bg=nil})
+-- vim.api.nvim_set_hl(0, "NvimTreeNormal", {fg="#f8f8f2", bg="#282a36"})
 

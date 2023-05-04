@@ -3,5 +3,4 @@ require("toggleterm").setup({
   shade_terminals = false
 })
 
--- vim.keymap.set()
-
+vim.keymap.set("n", "<C-T>", ":ToggleTerm<CR>")

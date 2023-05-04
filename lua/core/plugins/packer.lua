@@ -19,9 +19,12 @@ return require("packer").startup(function(use)
 
   -- colorschemes
   use "Mofiqul/dracula.nvim"
-  -- use "arcticicestudio/nord-vim"
-  --use "altercation/vim-colors-solarized"
+  use "arcticicestudio/nord-vim"
+  use { "catppuccin/nvim", as = "catppuccin" }
+  -- use "altercation/vim-colors-solarized"
 
+  -- fancy icons
+  use 'nvim-tree/nvim-web-devicons'
   -- file explorer
   use {
     "nvim-tree/nvim-tree.lua",
@@ -35,7 +38,7 @@ return require("packer").startup(function(use)
   }
 
   -- tab line
-  -- use 'kdheepak/tabline.nvim'
+  use 'kdheepak/tabline.nvim'
 
   -- shows keyboard shortcuts
   use "folke/which-key.nvim"
@@ -48,6 +51,7 @@ return require("packer").startup(function(use)
 
   -- syntax highlighting
   use "nvim-treesitter/nvim-treesitter"
+  use "nvim-treesitter/playground"
 
   -- better terminal
   use "akinsho/toggleterm.nvim"
