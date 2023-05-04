@@ -4,3 +4,7 @@ require("core.options")
 require("core.keymaps")
 -- plugins config
 require("core.plugins")
+-- custom colors
+require("core.colors")
+-- custom file configs
+require("core.filetypes")
