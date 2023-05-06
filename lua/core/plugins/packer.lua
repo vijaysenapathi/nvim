@@ -12,24 +12,26 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require("packer").startup(function(use)
+  -- Base packer plugin
   use "wbthomason/packer.nvim"
-  -- My plugins here
-  -- use "foo1/bar1.nvim"
-  -- use "foo2/bar2.nvim"
 
   -- colorschemes
-  use "Mofiqul/dracula.nvim"
-  use "arcticicestudio/nord-vim"
   use { "catppuccin/nvim", as = "catppuccin" }
-  -- use "altercation/vim-colors-solarized"
 
   -- fancy icons
   use 'nvim-tree/nvim-web-devicons'
+
   -- file explorer
   use {
     "nvim-tree/nvim-tree.lua",
     requires = { "nvim-tree/nvim-web-devicons", opt=true }
   }
+
+  -- Startup screen
+  -- use {
+  --     "startup-nvim/startup.nvim",
+  --     requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
+  -- }
 
   -- status line
   use {
@@ -63,26 +65,35 @@ return require("packer").startup(function(use)
     "neovim/nvim-lspconfig"
   }
 
---[[
   -- auto complete
   use "hrsh7th/nvim-cmp" -- The completion plugin
-  use "hrsh7th/cmp-nvim-lsp" -- nvim builtin lsp
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
+  use "onsails/lspkind.nvim" -- For customizing suggestions
 
-  -- debugging
-  use "mfussenegger/nvim-dap"
-  use "rcarriga/nvim-dap-ui"
-  use "mfussenegger/nvim-dap-python"
-]]
+  use "L3MON4D3/LuaSnip" -- NVIM CMP requires a snippet engine
+  use "saadparwaiz1/cmp_luasnip"
+
+  use "hrsh7th/cmp-buffer" -- buffer completions
+  use "hrsh7th/cmp-nvim-lsp" -- nvim builtin lsp
+  --[[
+    -- auto complete
+    use "hrsh7th/nvim-cmp" -- The completion plugin
+    use "hrsh7th/cmp-nvim-lsp" -- nvim builtin lsp
+    use "hrsh7th/cmp-buffer" -- buffer completions
+    use "hrsh7th/cmp-path" -- path completions
+    use "hrsh7th/cmp-cmdline" -- cmdline completions
+
+    -- debugging
+    use "mfussenegger/nvim-dap"
+    use "rcarriga/nvim-dap-ui"
+    use "mfussenegger/nvim-dap-python"
+    ]]
   use "numToStr/Comment.nvim"
 
   -- Git tools
   use "tpope/vim-fugitive"
 
   -- For working well with tmux
-  use "christoomey/vim-tmux-navigator"
+  -- use "christoomey/vim-tmux-navigator"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

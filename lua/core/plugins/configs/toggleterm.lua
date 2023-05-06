@@ -3,4 +3,4 @@ require("toggleterm").setup({
   shade_terminals = false
 })
 
-vim.keymap.set("n", "<C-T>", ":ToggleTerm<CR>")
+vim.keymap.set("n", "<F12>", ":ToggleTerm<CR>")

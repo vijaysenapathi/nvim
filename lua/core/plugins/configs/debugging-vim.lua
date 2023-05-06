@@ -8,7 +8,7 @@
 
 
 vim.keymap.set(
-  "n", "<F12>",
+  "n", "<F11>",
   function()
     local result = vim.treesitter.get_captures_at_cursor(0)
     print(vim.inspect(result))

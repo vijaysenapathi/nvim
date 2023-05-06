@@ -20,6 +20,7 @@ local options = {
   matchtime = 15,       -- Matching bracket show time
 
   shell = "/opt/homebrew/bin/fish", -- default shell to fish
+
   exrc = true,           -- Enabling project specific configuration to be set
   secure = true         -- disabling random shell scripts to be run from files
 }
