@@ -70,7 +70,8 @@ return require("packer").startup(function(use)
   use "onsails/lspkind.nvim" -- For customizing suggestions
 
   use "L3MON4D3/LuaSnip" -- NVIM CMP requires a snippet engine
-  use "saadparwaiz1/cmp_luasnip"
+  use ({"saadparwaiz1/cmp_luasnip", run = "make install_jsregexp"})
+  use "windwp/nvim-autopairs" -- CMP should auto pair braces
 
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-nvim-lsp" -- nvim builtin lsp
@@ -91,6 +92,7 @@ return require("packer").startup(function(use)
 
   -- Git tools
   use "tpope/vim-fugitive"
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   -- For working well with tmux
   -- use "christoomey/vim-tmux-navigator"
