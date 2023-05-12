@@ -69,12 +69,28 @@ return require("packer").startup(function(use)
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "onsails/lspkind.nvim" -- For customizing suggestions
 
-  use "L3MON4D3/LuaSnip" -- NVIM CMP requires a snippet engine
-  use ({"saadparwaiz1/cmp_luasnip", run = "make install_jsregexp"})
-  use "windwp/nvim-autopairs" -- CMP should auto pair braces
+  use ({"L3MON4D3/LuaSnip", run = "make install_jsregexp"}) -- NVIM CMP requires a snippet engine
+  use ({"saadparwaiz1/cmp_luasnip"})
+
 
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-nvim-lsp" -- nvim builtin lsp
+  use "hrsh7th/cmp-calc" -- some fun calculator completion
+
+  --[[ use({
+    "glepnir/lspsaga.nvim",
+    opt = true,
+    branch = "main",
+    event = "LspAttach",
+    config = function()
+      require("lspsaga").setup({})
+    end,
+    requires = {
+      {"nvim-tree/nvim-web-devicons"},
+      {"nvim-treesitter/nvim-treesitter"}
+    }
+  }) ]]
+
   --[[
     -- auto complete
     use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -90,9 +106,14 @@ return require("packer").startup(function(use)
     ]]
   use "numToStr/Comment.nvim"
 
+  use "windwp/nvim-autopairs" -- For auto pairing braces
+
   -- Git tools
   use "tpope/vim-fugitive"
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+
+  -- Zen Mode
+  use "folke/zen-mode.nvim"
 
   -- For working well with tmux
   -- use "christoomey/vim-tmux-navigator"
