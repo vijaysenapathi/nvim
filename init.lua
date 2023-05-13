@@ -1,5 +1,5 @@
 -- custom functions
-require("core.functions")
+require("core.functions.before")
 -- store all vanilla vim options here
 require("core.options")
 -- store all keymappings here
@@ -10,3 +10,5 @@ require("core.plugins")
 require("core.colors")
 -- custom file configs
 require("core.filetypes")
+-- custom functions
+require("core.functions.after")

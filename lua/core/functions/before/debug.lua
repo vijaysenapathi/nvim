@@ -1,4 +1,3 @@
-
 local buffer_name = "nvim_debug.log"
 
 local get_debug_details = function ()
@@ -32,7 +31,7 @@ local get_debug_window = function (buffer)
   local debug_window = get_debug_window_if_open(buffer_full_name)
 
   if debug_window == nil then
-    vim.cmd('split')
+    vim.cmd("split")
     local current_window = vim.api.nvim_get_current_win()
     vim.api.nvim_win_set_height(current_window, 10)
     vim.api.nvim_win_set_buf(current_window, buffer)
@@ -91,7 +90,20 @@ local debug = function (raw_message)
 end
 
 
+--- clears the debug buffer
+local debug_clear = function ()
+  local debug_details = get_debug_details()
+  local debug_buffer = debug_details.buffer
+
+  -- vim.api.nvim_buf_delete(debug_buffer, {})
+  vim.api.nvim_buf_set_option(debug_buffer, "modifiable", true)
+  vim.api.nvim_buf_set_lines(debug_buffer, 0, -1, false, {})
+  vim.api.nvim_buf_set_option(debug_buffer, "modifiable", false)
+end
+
+
 Debug = debug
+DebugClear = debug_clear
 
 
 -- Creating a vim command
@@ -101,4 +113,12 @@ vim.api.nvim_create_user_command(
     debug(opts.fargs[1])
   end,
   { nargs = 1 }
+)
+
+vim.api.nvim_create_user_command(
+  "DebugClear",
+  function (opts)
+    debug_clear()
+  end,
+  { nargs = 0 }
 )
