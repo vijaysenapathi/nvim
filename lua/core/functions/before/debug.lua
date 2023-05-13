@@ -1,4 +1,4 @@
-local buffer_name = "nvim_debug.log"
+local buffer_name = "nvim-debug.log"
 
 local get_debug_details = function ()
   if _DebugDetails == nil then

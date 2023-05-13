@@ -14,7 +14,7 @@ require("lspconfig").lua_ls.setup({
         callSnippet = "Replace"
       },
       diagnostics = {
-        globals = { 'vim' }
+        globals = { 'vim' , 'vim.treesitter' }
       }
     }
   }
