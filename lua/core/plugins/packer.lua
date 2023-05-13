@@ -64,6 +64,7 @@ return require("packer").startup(function(use)
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig"
   }
+  use "ray-x/lsp_signature.nvim" -- Shows lsp definition
 
   -- auto complete
   use "hrsh7th/nvim-cmp" -- The completion plugin

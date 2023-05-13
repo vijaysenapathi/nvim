@@ -5,5 +5,8 @@ cmp.setup.cmdline(":", {
   sources = cmp.config.sources(
     {{ name = "path" }},
     {{ name = "cmdline" }}
-  )
+  ),
+  matching = {
+    disallow_fuzzy_matching = false
+  },
 })
