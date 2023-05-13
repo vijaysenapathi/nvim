@@ -20,5 +20,4 @@ require("core.plugins.configs.autopairs")
 require("core.plugins.configs.zenmode")
 require("core.plugins.configs.toggleterm")
 require("core.plugins.configs.tmux-navigator")
-require("core.plugins.configs.debugging-vim")
 

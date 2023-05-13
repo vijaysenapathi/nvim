@@ -50,11 +50,11 @@ cmp.setup({
     end, { 'i', 's' }),
   },
   window = {
-    completion = cmp.config.window.bordered({
-      border = {"┌", "─" ,"┐","│", "┘", "─", "└", "│"},
-      col_offset = -1,
-      side_padding = 1
-    }),
+    -- completion = cmp.config.window.bordered({
+    --   border = {"┌", "─" ,"┐","│", "┘", "─", "└", "│"},
+    --   col_offset = -1,
+    --   side_padding = 1
+    -- }),
 
     documentation = cmp.config.window.bordered({
       border = {"┌", "─" ,"┐","│", "┘", "─", "└", "│"},
@@ -64,8 +64,8 @@ cmp.setup({
   sources = {
     { name = 'nvim_lsp', group_index = 1},
     { name = 'luasnip', group_index = 1},
-    { name = 'calc', group_index = 1},
-    { name = 'buffer', group_index = 1},
+    { name = 'calc', group_index = 2},
+    { name = 'buffer', group_index = 3},
   },
   formatting = {
     format = lspkind.cmp_format({

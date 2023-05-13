@@ -76,6 +76,10 @@ return require("packer").startup(function(use)
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-nvim-lsp" -- nvim builtin lsp
   use "hrsh7th/cmp-calc" -- some fun calculator completion
+  use "hrsh7th/cmp-path" -- path completions
+  use "hrsh7th/cmp-cmdline" -- command line completion
+
+  use "folke/neodev.nvim" -- for lua development
 
   --[[ use({
     "glepnir/lspsaga.nvim",

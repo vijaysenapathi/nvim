@@ -8,3 +8,5 @@ require("core.plugins")
 require("core.colors")
 -- custom file configs
 require("core.filetypes")
+-- custom functions
+require("core.functions")
