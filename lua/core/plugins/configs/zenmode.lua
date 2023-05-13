@@ -16,4 +16,4 @@ require("zen-mode").setup({
   }
 })
 
-vim.keymap.set("n", "<F5>", ":ZenMode<CR>")
+vim.keymap.set("n", "<F5>", ":ZenMode<CR>:<C-c>")
