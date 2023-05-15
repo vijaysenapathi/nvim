@@ -13,3 +13,22 @@ if parser ~= nil then
   Debug(vim.treesitter.query.list_predicates())
 end
 ]]
+
+--[[
+local structure_open = function ()
+
+end
+
+
+StructureOpen = structure_open
+
+
+-- Creating a vim command
+vim.api.nvim_create_user_command(
+  "StructureOpen",
+  function (_)
+    structure_open()
+  end,
+  { nargs = 0 }
+)
+]]

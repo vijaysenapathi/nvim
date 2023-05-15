@@ -117,7 +117,7 @@ vim.api.nvim_create_user_command(
 
 vim.api.nvim_create_user_command(
   "DebugClear",
-  function (opts)
+  function (_)
     debug_clear()
   end,
   { nargs = 0 }
