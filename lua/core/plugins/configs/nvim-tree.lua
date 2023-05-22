@@ -26,14 +26,26 @@ require("nvim-tree").setup({
         folder = true,
         folder_arrow = true,
         git = false,
-      }
+      },
+      glyphs = {
+        folder = {
+          -- arrow_closed = "",
+          -- arrow_open = "",
+          -- default = "󰉋",
+          -- open = "",
+          empty = "",
+          empty_open = "",
+          -- symlink = "",
+          -- symlink_open = "",
+        }
+      },
     },
     special_files = {},
   }
 })
 
 vim.keymap.set("n", "<F1>", ":NvimTreeToggle<CR>")
-vim.keymap.set("n", "<F13>", ":NvimTreeFocus<CR>") -- Shift F1
+vim.keymap.set("n", "<F13>", ":NvimTreeFindFile<CR>") -- Shift F1
 
 -- vim.highlight.create("NvimTreeIndentMarker", {ctermfg="Green", guifg="Red"}, false)
 -- Dracula theme

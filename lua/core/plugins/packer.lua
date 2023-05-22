@@ -59,11 +59,20 @@ return require("packer").startup(function(use)
   use "akinsho/toggleterm.nvim"
 
   -- Language Server Protocol
+  use "neovim/nvim-lspconfig"
+
+  -- Debug Protocol
+  use "mfussenegger/nvim-dap"
+  -- use "rcarriga/nvim-dap-ui"
+  -- use "mfussenegger/nvim-dap-python"
+
+  -- Managing lsp servers and dap adapters
   use {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig"
+    "jay-babu/mason-nvim-dap.nvim",
   }
+
   use "ray-x/lsp_signature.nvim" -- Shows lsp definition
 
   -- auto complete
@@ -103,14 +112,15 @@ return require("packer").startup(function(use)
     use "hrsh7th/cmp-buffer" -- buffer completions
     use "hrsh7th/cmp-path" -- path completions
     use "hrsh7th/cmp-cmdline" -- cmdline completions
-
-    -- debugging
-    use "mfussenegger/nvim-dap"
-    use "rcarriga/nvim-dap-ui"
-    use "mfussenegger/nvim-dap-python"
     ]]
-  use "numToStr/Comment.nvim"
 
+  -- debugging
+  -- use "mfussenegger/nvim-dap"
+  -- -- use "rcarriga/nvim-dap-ui"
+  -- use "mfussenegger/nvim-dap-python"
+
+
+  use "numToStr/Comment.nvim" -- Commenting
   use "windwp/nvim-autopairs" -- For auto pairing braces
 
   -- Git tools

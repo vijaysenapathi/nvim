@@ -102,13 +102,13 @@ local debug_clear = function ()
 end
 
 
-Debug = debug
-DebugClear = debug_clear
+NvimDebug = debug
+NvimDebugClear = debug_clear
 
 
 -- Creating a vim command
 vim.api.nvim_create_user_command(
-  "Debug",
+  "NvimDebug",
   function (opts)
     debug(opts.fargs[1])
   end,
@@ -116,7 +116,7 @@ vim.api.nvim_create_user_command(
 )
 
 vim.api.nvim_create_user_command(
-  "DebugClear",
+  "NvimDebugClear",
   function (_)
     debug_clear()
   end,
