@@ -20,6 +20,7 @@ require("nvim-tree").setup({
     indent_markers = {
       enable = true,
     },
+    root_folder_label = false, -- This disables the root folder name
     icons = {
       show = {
         file = true,

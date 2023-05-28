@@ -10,7 +10,10 @@ require("nvim-treesitter.configs").setup({
     additional_vim_regex_highlighting = false
   },
   indent = {
-    enable = true
+    enable = true,
+    disable = {
+      "yaml" -- yaml indentation is broken with treesitter
+    }
   },
   playground = {
     enable = true,

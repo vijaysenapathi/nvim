@@ -26,6 +26,10 @@ local dap_debug_console = function ()
   dap.repl.open()
 end
 
+local dap_debug_terminate = function ()
+  dap.terminate()
+end
+
 
 -- Creating vim commands
 vim.api.nvim_create_user_command(
@@ -65,6 +69,14 @@ vim.api.nvim_create_user_command(
   "DebugConsole",
   function (_)
     dap_debug_console()
+  end,
+  { nargs = 0 }
+)
+
+vim.api.nvim_create_user_command(
+  "DebugTerminate",
+  function (_)
+    dap_debug_terminate()
   end,
   { nargs = 0 }
 )
