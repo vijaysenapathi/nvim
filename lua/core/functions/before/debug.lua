@@ -102,8 +102,8 @@ local debug_clear = function ()
 end
 
 
-NvimDebug = debug
-NvimDebugClear = debug_clear
+Debug = debug
+DebugClear = debug_clear
 
 
 -- Creating a vim command

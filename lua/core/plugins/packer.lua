@@ -82,7 +82,6 @@ return require("packer").startup(function(use)
   use ({"L3MON4D3/LuaSnip", run = "make install_jsregexp"}) -- NVIM CMP requires a snippet engine
   use ({"saadparwaiz1/cmp_luasnip"})
 
-
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-nvim-lsp" -- nvim builtin lsp
   use "hrsh7th/cmp-calc" -- some fun calculator completion
@@ -91,33 +90,8 @@ return require("packer").startup(function(use)
 
   use "folke/neodev.nvim" -- for lua development
 
-  --[[ use({
-    "glepnir/lspsaga.nvim",
-    opt = true,
-    branch = "main",
-    event = "LspAttach",
-    config = function()
-      require("lspsaga").setup({})
-    end,
-    requires = {
-      {"nvim-tree/nvim-web-devicons"},
-      {"nvim-treesitter/nvim-treesitter"}
-    }
-  }) ]]
-
-  --[[
-    -- auto complete
-    use "hrsh7th/nvim-cmp" -- The completion plugin
-    use "hrsh7th/cmp-nvim-lsp" -- nvim builtin lsp
-    use "hrsh7th/cmp-buffer" -- buffer completions
-    use "hrsh7th/cmp-path" -- path completions
-    use "hrsh7th/cmp-cmdline" -- cmdline completions
-    ]]
-
-  -- debugging
-  -- use "mfussenegger/nvim-dap"
-  -- -- use "rcarriga/nvim-dap-ui"
-  -- use "mfussenegger/nvim-dap-python"
+  -- Formatter
+  use "mhartington/formatter.nvim"
 
 
   use "numToStr/Comment.nvim" -- Commenting
