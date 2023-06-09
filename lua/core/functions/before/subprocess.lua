@@ -36,8 +36,19 @@ end
 local job_async_start = function (buffer, details)
   _debug("Async job starting")
 
+  local function parse_job_data(data)
+    -- TODO: parse this properly
+    return data
+  end
+
   local output_to_buffer = function(_, data, _)
-      send_lines_to_buffer(buffer, data)
+    local lines = parse_job_data(data)
+    send_lines_to_buffer(buffer, lines)
+  end
+
+  local function on_exit_hook(job_id, exit_code, _)
+    local line = "Process " .. job_id .. " exited with code " .. exit_code
+    send_lines_to_buffer(buffer, {line})
   end
 
   local command = details.command
@@ -46,6 +57,7 @@ local job_async_start = function (buffer, details)
   local job_id = vim.fn.jobstart(command, {
     on_stdout = output_to_buffer,
     on_stderr = output_to_buffer,
+    on_exit = on_exit_hook,
     stdout_bufferred = true,
     stderr_bufferred = true,
     env = details.env,
@@ -76,6 +88,7 @@ local buffer_start = function (details)
   -- We first start an unmodifiable buffer
   local process_buffer = vim.api.nvim_create_buf(true, true)
   vim.api.nvim_buf_set_option(process_buffer, "modifiable", false)
+  vim.api.nvim_buf_set_option(process_buffer, "buflisted", false)
   vim.api.nvim_buf_set_name(process_buffer, buffer_name)
 
   -- table.insert(NvimSubProcesses.buffers, process_buffer)
@@ -126,6 +139,7 @@ end
 
 
 SubprocessStart = subprocess_start
+SubprocessStop = subprocess_stop
 
 
 vim.api.nvim_create_user_command(
@@ -142,9 +156,40 @@ vim.api.nvim_create_user_command(
 )
 
 vim.api.nvim_create_user_command(
+  "SubprocessStop",
+  function (opts)
+    subprocess_stop({opts.fargs[1]})
+  end,
+  { nargs = 1 }
+)
+
+vim.api.nvim_create_user_command(
   "SubprocesStopAll",
   function (_)
     subprocess_stop_all()
   end,
   { nargs = 0 }
 )
+
+local function open_terminal()
+  local term_buf = vim.api.nvim_create_buf(false, true)
+  local term_win = vim.api.nvim_open_term(term_buf, {
+    width = 40,  -- Width of the terminal window
+    height = 10, -- Height of the terminal window
+    direction = "vertical", -- Split direction: 'vertical' or 'horizontal'
+    -- term_finish = function(_, _, _)
+    --   -- vim.cmd("startinsert!") -- Automatically enter insert mode when the terminal is opened
+    -- end,
+  })
+  vim.api.nvim_win_set_option(term_win, "wrap", false) -- Disable line wrapping in the terminal window
+  local env_vars = {
+      BONKERS = "ding"
+    -- Add more environment variables as needed
+  }
+  for key, value in pairs(env_vars) do
+    vim.fn.setenv(key, value)
+  end
+end
+
+OpenTerminal = open_terminal
+

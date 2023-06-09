@@ -13,6 +13,7 @@ require("core.plugins.configs.treesitter")
 require("core.plugins.configs.lsp")
 require("core.plugins.configs.cmp")
 require("core.plugins.configs.dap")
+require("core.plugins.configs.frameworks")
 require("core.plugins.configs.luasnip")
 require("core.plugins.configs.tabline")
 -- require("core.plugins.configs.nvim-dap")
@@ -21,4 +22,6 @@ require("core.plugins.configs.autopairs")
 require("core.plugins.configs.zenmode")
 require("core.plugins.configs.toggleterm")
 require("core.plugins.configs.tmux-navigator")
+
+
 

@@ -63,7 +63,7 @@ return require("packer").startup(function(use)
 
   -- Debug Protocol
   use "mfussenegger/nvim-dap"
-  -- use "rcarriga/nvim-dap-ui"
+  use "rcarriga/nvim-dap-ui"
   -- use "mfussenegger/nvim-dap-python"
 
   -- Managing lsp servers and dap adapters

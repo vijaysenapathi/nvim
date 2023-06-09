@@ -1,9 +1,9 @@
 local function custom_file_info()
-    --return buffer.filetype .. buffer.fileencoding .. buffer.fileformat
     local buffer = vim.bo
     return
         buffer.fileencoding .."[".. buffer.fileformat.."]"
 end
+
 
 local function custom_file_position()
     local row, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -56,7 +56,7 @@ require('lualine').setup {
         },
         lualine_c = {'filename'},
         lualine_x = {'filetype'},
-        lualine_y = { custom_file_info },
+        lualine_y = {custom_file_info},
         lualine_z = {custom_file_position}
     },
     inactive_sections = {

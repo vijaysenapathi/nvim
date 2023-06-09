@@ -7,3 +7,6 @@ vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
 vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
 
+-- Terminal maps
+-- tnoremap
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")

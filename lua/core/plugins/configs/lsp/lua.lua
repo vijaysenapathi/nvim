@@ -13,8 +13,20 @@ require("lspconfig").lua_ls.setup({
         callSnippet = "Replace"
       },
       diagnostics = {
-        globals = { 'vim' , 'vim.treesitter' }
-      }
+        globals = { 'vim' , 'vim.treesitter', 'RunCommand'}
+      },
+      runtime = {
+        version = "Lua 5.4.5",
+        path = {
+          "~/.config/nvim/lua/?/?.lua"
+          -- "script/?.lua",
+          -- "script/?/init.lua",
+          -- "test/?.lua",
+          -- "test/?/init.lua",
+          -- "script/meta/?.lua"
+        },
+        pathStrict = true
+      },
     }
   }
 })

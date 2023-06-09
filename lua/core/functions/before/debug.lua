@@ -105,7 +105,6 @@ end
 Debug = debug
 DebugClear = debug_clear
 
-
 -- Creating a vim command
 vim.api.nvim_create_user_command(
   "NvimDebug",
