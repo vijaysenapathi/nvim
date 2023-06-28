@@ -174,12 +174,6 @@ vim.api.nvim_create_user_command(
 local function open_terminal()
   local term_buf = vim.api.nvim_create_buf(false, true)
   local term_win = vim.api.nvim_open_term(term_buf, {
-    width = 40,  -- Width of the terminal window
-    height = 10, -- Height of the terminal window
-    direction = "vertical", -- Split direction: 'vertical' or 'horizontal'
-    -- term_finish = function(_, _, _)
-    --   -- vim.cmd("startinsert!") -- Automatically enter insert mode when the terminal is opened
-    -- end,
   })
   vim.api.nvim_win_set_option(term_win, "wrap", false) -- Disable line wrapping in the terminal window
   local env_vars = {

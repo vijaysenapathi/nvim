@@ -19,6 +19,8 @@ local options = {
   showmatch = true,     -- Show matching bracket
   matchtime = 15,       -- Matching bracket show time
 
+  smartcase = true,     -- Handles case insensitive case searches properly
+
   shell = "/opt/homebrew/bin/fish", -- default shell to fish
 
   exrc = true,           -- Enabling project specific configuration to be set
