@@ -15,8 +15,8 @@ cmp.setup.filetype("python", {
       end
     },
     { name = 'luasnip', group_index = 1},
-    { name = 'buffer', group_index = 2},
-    { name = 'calc', group_index = 3},
+    -- { name = 'buffer', group_index = 2},
+    -- { name = 'calc', group_index = 3},
   },
   window = {
     completion = {scrollbar = true}

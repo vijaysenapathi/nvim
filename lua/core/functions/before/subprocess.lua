@@ -171,19 +171,19 @@ vim.api.nvim_create_user_command(
   { nargs = 0 }
 )
 
-local function open_terminal()
-  local term_buf = vim.api.nvim_create_buf(false, true)
-  local term_win = vim.api.nvim_open_term(term_buf, {
-  })
-  vim.api.nvim_win_set_option(term_win, "wrap", false) -- Disable line wrapping in the terminal window
-  local env_vars = {
-      BONKERS = "ding"
-    -- Add more environment variables as needed
-  }
-  for key, value in pairs(env_vars) do
-    vim.fn.setenv(key, value)
-  end
-end
-
-OpenTerminal = open_terminal
+-- local function open_terminal()
+--   local term_buf = vim.api.nvim_create_buf(false, true)
+--   local term_win = vim.api.nvim_open_term(term_buf, {
+--   })
+--   vim.api.nvim_win_set_option(term_win, "wrap", false) -- Disable line wrapping in the terminal window
+--   local env_vars = {
+--       BONKERS = "ding"
+--     -- Add more environment variables as needed
+--   }
+--   for key, value in pairs(env_vars) do
+--     vim.fn.setenv(key, value)
+--   end
+-- end
+--
+-- OpenTerminal = open_terminal
 

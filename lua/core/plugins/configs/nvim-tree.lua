@@ -4,7 +4,7 @@ vim.g.loaded_netrwPlugin = 1
 require("nvim-tree").setup({
   disable_netrw = true,
   view = {
-    side = "center",
+    -- side = "center",
     float = {
       enable = false,
       --[[ open_win_config = {
@@ -42,7 +42,11 @@ require("nvim-tree").setup({
       },
     },
     special_files = {},
-  }
+  },
+  filters = {
+    dotfiles = true,
+    exclude = {".gitignore"}
+  },
 })
 
 vim.keymap.set("n", "<F1>", ":NvimTreeToggle<CR>")

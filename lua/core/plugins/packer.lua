@@ -27,12 +27,6 @@ return require("packer").startup(function(use)
     requires = { "nvim-tree/nvim-web-devicons", opt=true }
   }
 
-  -- Startup screen
-  -- use {
-  --     "startup-nvim/startup.nvim",
-  --     requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
-  -- }
-
   -- status line
   use {
     "nvim-lualine/lualine.nvim",
@@ -47,7 +41,7 @@ return require("packer").startup(function(use)
 
   -- fuzzy searcher
   use {
-    "nvim-telescope/telescope.nvim", tag = "0.1.1",
+    "nvim-telescope/telescope.nvim", branch = "0.1.x",
     requires = { "nvim-lua/plenary.nvim" }
   }
 
@@ -60,6 +54,9 @@ return require("packer").startup(function(use)
 
   -- Language Server Protocol
   use "neovim/nvim-lspconfig"
+
+  -- Symbols
+  use 'simrat39/symbols-outline.nvim'
 
   -- Debug Protocol
   use "mfussenegger/nvim-dap"
@@ -103,9 +100,6 @@ return require("packer").startup(function(use)
 
   -- Zen Mode
   use "folke/zen-mode.nvim"
-
-  -- For working well with tmux
-  -- use "christoomey/vim-tmux-navigator"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
