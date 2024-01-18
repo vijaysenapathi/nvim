@@ -98,6 +98,13 @@ return require("packer").startup(function(use)
   use "tpope/vim-fugitive"
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
+  -- neorg
+  use {
+    "nvim-neorg/neorg",
+    run = ":neorg sync-parsers",
+    requires = "nvim-lua/plenary.nvim"
+  }
+
   -- Zen Mode
   use "folke/zen-mode.nvim"
 
