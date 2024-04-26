@@ -30,8 +30,6 @@ end
 
 
 ---Starts a system process async
----@param command string
----@param args table
 ---@return number
 local job_async_start = function (buffer, details)
   _debug("Async job starting")

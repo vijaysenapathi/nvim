@@ -1,4 +1,4 @@
-require("neorg").setup{
+require("neorg").setup({
   load = {
     ["core.defaults"] = {}, -- Loads default behaviour
     ["core.concealer"] = {
@@ -44,9 +44,14 @@ require("neorg").setup{
       },
     },
   },
-}
+})
 
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
   pattern = {"*.norg"},
   command = "set conceallevel=3"
+})
+
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+  pattern = {"*.norg"},
+  command = "TSBufEnable highlight"
 })

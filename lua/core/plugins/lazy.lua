@@ -20,6 +20,9 @@ vim.g.maplocalleader = " "
 
 
 require("lazy").setup({
+
+  { "vhyrro/luarocks.nvim", priority = 1000,  config = true },
+
   -- colorschemes
   { "catppuccin/nvim", name = "catppuccin" },
 
@@ -103,6 +106,16 @@ require("lazy").setup({
   -- Git tools
   "tpope/vim-fugitive",
   { 'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim' },
+
+  {
+    "nvim-neorg/neorg",
+    dependencies = { "luarocks.nvim", "nvim-treesitter/nvim-treesitter" },
+    lazy = false,
+    version = "*", -- Pin Neorg to the latest stable release
+    config = function()
+      require("neorg").setup({ load = {} })
+    end,
+  },
 
   -- neorg
   -- use {
