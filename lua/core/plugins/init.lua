@@ -1,2 +1,2 @@
-require("core.plugins.packer")
+require("core.plugins.lazy")
 require("core.plugins.configs")
