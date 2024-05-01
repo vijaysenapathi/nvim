@@ -1,7 +1,7 @@
 require("nvim-treesitter.configs").setup({
   -- list of parser names
-  ensure_installed = "all",
-  -- ensure_installed = { "c", "cpp", "cmake", "lua", "python", "rust", "vim" },
+  -- ensure_installed = "all",
+  ensure_installed = { "c", "cpp", "cmake", "lua", "python", "rust" },
   ignore_install = {},
 
   sync_install = false,

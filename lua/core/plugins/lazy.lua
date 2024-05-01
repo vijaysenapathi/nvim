@@ -114,6 +114,8 @@ require("lazy").setup({
     version = "*", -- Pin Neorg to the latest stable release
     config = function()
       require("neorg").setup({ load = {} })
+      vim.wo.foldlevel = 99
+      vim.wo.conceallevel = 2
     end,
   },
 

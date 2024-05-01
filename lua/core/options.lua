@@ -1,5 +1,6 @@
 local options = {
   number = true,        -- set line numbers
+  cursorline = true,    -- highlight current line
 
   showcmd = true,       -- show the command that's being entered
 
