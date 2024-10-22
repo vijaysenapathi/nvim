@@ -1,7 +1,8 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
+  -- TODO: Figure out typescript 
   ensure_installed = {
-    "lua_ls", "clangd", "jedi_language_server", "cmake", "tsserver"
+    "lua_ls", "clangd", "jedi_language_server", "cmake"
   }
 })
 
