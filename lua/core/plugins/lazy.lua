@@ -108,6 +108,19 @@ require("lazy").setup({
   { 'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim' },
 
   {
+    {
+      "NeogitOrg/neogit",
+      dependencies = {
+        "nvim-lua/plenary.nvim",         -- required
+        "sindrets/diffview.nvim",        -- optional - Diff integration
+
+        "nvim-telescope/telescope.nvim", -- optional
+      },
+      config = true
+    }
+  },
+
+  {
     "nvim-neorg/neorg",
     dependencies = { "luarocks.nvim", "nvim-treesitter/nvim-treesitter" },
     lazy = false,

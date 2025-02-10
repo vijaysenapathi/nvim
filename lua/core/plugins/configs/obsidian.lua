@@ -6,7 +6,11 @@ require("obsidian").setup({
     },
     {
       name = "Life",
-      path = "~/Obsidian/Life"
+      path = "~/Obsidian/Personal"
+    },
+    {
+      name = "Life",
+      path = "~/Obsidian/Personal"
     },
 
   }

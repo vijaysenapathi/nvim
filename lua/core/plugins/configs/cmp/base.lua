@@ -5,7 +5,6 @@ local lspkind = require('lspkind')
 -- local autopairs = require('nvim-autopairs')
 -- local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
-
 --luasnip.config.setup({})
 
 local has_words_before = function()
@@ -102,7 +101,6 @@ cmp.setup({
   --   ghost_text = true
   -- }
 })
-
 
 -- cmp.event:on(
 --   'confirm_done',
