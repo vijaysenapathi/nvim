@@ -14,7 +14,7 @@ return {
     require("mason-lspconfig").setup({
       ensure_installed = {
         "lua_ls", "clangd", "jedi_language_server", "cmake", "ts_ls", "bashls",
-        "basedpyright" -- for python
+        "pyright" -- for python
       },
       automatic_installation = true
     })

@@ -1,7 +1,7 @@
 -- for managing git from within neovim
 -- source: https://github.com/NeogitOrg/neogit
 
--- TODO: figure out why neogit is messing up telescope
+
 return {
   "NeogitOrg/neogit", name = "neogit",
   dependencies = {

@@ -1,3 +1,5 @@
+-- all keymaps for various lsp functions
+
 local set_keymaps = function(_, _)
   vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
   vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
@@ -10,4 +12,3 @@ local set_keymaps = function(_, _)
 end
 
 return set_keymaps
-
