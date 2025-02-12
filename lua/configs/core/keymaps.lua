@@ -1,13 +1,13 @@
-local set_keymaps = function(_, _)
-  vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
-  vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
+-- Use tab and shift tab in normal mode to switch buffers
+vim.keymap.set("n", "<Tab>", ":bnext<CR>")
+vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
+vim.keymap.set("n", "j", "gj")
+vim.keymap.set("n", "k", "gk")
 
-  vim.keymap.set("n", "<F6>", vim.lsp.buf.definition, {})
-  vim.keymap.set("n", "<F7>", vim.lsp.buf.implementation, {})
-  vim.keymap.set("n", "<F8>", require("telescope.builtin").lsp_references, {})
-  vim.keymap.set("n", "<F9>", vim.lsp.buf.hover, {})
-end
-
-return set_keymaps
+-- Terminal maps
+-- tnoremap
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 

@@ -1,7 +1,7 @@
 -- for adding the colorscheme catppuccin
 -- source: https://github.com/catppuccin/nvim
 
-return { 
+return {
   "catppuccin/nvim", name = "catppuccin", priority = 1000, lazy = false,
   config = function()
     require("catppuccin").setup({
@@ -37,14 +37,9 @@ return {
       color_overrides = {},
       custom_highlights = {},
       integrations = {
-        -- TODO: figure what to turn on
-        -- cmp = true,
-        -- gitsigns = true,
-        -- nvimtree = true,
-        -- telescope = true,
-        -- notify = false,
-        -- mini = false
-        -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations
+        cmp = true,
+        nvimtree = true,
+        telescope = true,
       }
     })
 

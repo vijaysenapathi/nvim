@@ -4,8 +4,7 @@
 
 local function custom_file_info()
   local buffer = vim.bo
-  return
-  buffer.fileencoding .."[".. buffer.fileformat.."]"
+  return buffer.fileencoding .."[".. buffer.fileformat.."]"
 end
 
 
@@ -14,7 +13,21 @@ local function custom_file_position()
   col = col + 1
   local total_buffer_lines = vim.api.nvim_buf_line_count(0)
   local percentage = math.floor(100 * row / total_buffer_lines)
-  return percentage .. "%% " .. row .. ":" .. total_buffer_lines .. "☰ :" .. col
+
+  -- Commented these out as they are causing a buggy lualine
+  -- local fancy_seperator1 = "%% "
+  -- local fancy_seperator2 = "☰ :"
+  local fancy_seperator1 = "%% 󰉸 "
+  local fancy_seperator2 = " 󰹳 "
+
+  -- have a minimum of 3 padded space for percentage
+  local percent_padded = string.format("%s", percentage)
+
+  local status = percent_padded .. fancy_seperator1
+  status = status .. row .. "/" .. total_buffer_lines .. fancy_seperator2
+  status = status .. col
+
+  return status
 end
 
 
@@ -28,7 +41,7 @@ return {
       component_separators = { left = "", right = ""},
       section_separators = { left = "", right = ""},
       disabled_filetypes = {
-        statusline = {"NvimTree"},
+        statusline = {"NvimTree", "Outline"},
         winbar = {"Dap Scopes"},
       },
       ignore_focus = {
@@ -65,6 +78,7 @@ return {
       lualine_x = {"filetype"},
       lualine_y = {custom_file_info},
       lualine_z = {custom_file_position}
+      -- lualine_z = {"location"}
     },
     inactive_sections = {
       lualine_a = {},

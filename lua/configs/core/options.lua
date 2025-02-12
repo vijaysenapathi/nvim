@@ -25,6 +25,8 @@ local options = {
   -- TODO: move this to user settings
   shell = "/opt/homebrew/bin/fish", -- default shell to fish
 
+  backspace = { "indent", "eol", "start" }, -- TODO: wtf is this for
+
   exrc = true,           -- Enabling project specific configuration to be set
   secure = true         -- disabling random shell scripts to be run from files
 }
@@ -32,3 +34,4 @@ local options = {
 for key, value in pairs(options) do
   vim.opt[key] = value
 end
+

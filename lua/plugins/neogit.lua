@@ -10,5 +10,12 @@ return {
     "nvim-telescope/telescope.nvim", -- optional
   },
   opts = {
+
+    signs = {
+      -- { CLOSED, OPENED }
+      hunk = { "", "" },
+      item = { " ", "" },
+      section = { " ", "" },
+    },
   }
 }

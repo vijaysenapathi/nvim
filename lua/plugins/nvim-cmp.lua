@@ -2,12 +2,19 @@
 -- source: https://github.com/hrsh7th/nvim-cmp
 
 
+local has_words_before = function()
+  unpack = unpack or table.unpack
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
+
 return {
   "hrsh7th/nvim-cmp", name = "nvim-cmp",
   dependencies = {
     "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path", "hrsh7th/cmp-cmdline",
-    "hrsh7th/cmp-calc",
+    "hrsh7th/cmp-calc", "folke/lazydev.nvim",
     { "onsails/lspkind.nvim", name = "lspkind" }
   },
   config = function()
@@ -17,6 +24,7 @@ return {
 
     cmp.setup({
       sources = {
+        { name = 'lazydev', group_index = 0},
         { name = 'nvim_lsp', group_index = 1},
         { name = 'luasnip', group_index = 1},
         { name = 'calc', group_index = 2},
@@ -37,7 +45,7 @@ return {
         --['<C-Space>'] = cmp.mapping.complete {},
         ['<CR>'] = cmp.mapping.confirm {
           behavior = cmp.ConfirmBehavior.Replace,
-          select = true,
+          select = false,
         },
         ['<Tab>'] = cmp.mapping(function(fallback)
           if luasnip.expand_or_jumpable() then
@@ -57,6 +65,7 @@ return {
         end, { 'i', 's' }),
 
       },
+      -- TODO: fix the below missing required fields
       formatting = {
         format = lspkind.cmp_format({
           mode = 'symbol_text',
