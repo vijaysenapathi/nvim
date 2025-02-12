@@ -2,7 +2,7 @@
 require("configs.core")
 
 -- load the plugin manager, lazy
-require("lazy-pm")
+require("plugin-manager")
 
 -- setup any lsp settings
 require("configs.lsp")

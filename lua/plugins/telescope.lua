@@ -2,7 +2,7 @@
 -- source: https://github.com/nvim-telescope/telescope.nvim
 
 return {
-  "nvim-telescope/telescope.nvim", branch = "0.1.x",
+  "nvim-telescope/telescope.nvim",
   name = "telescope",
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function()

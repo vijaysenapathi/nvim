@@ -36,5 +36,11 @@ require("lazy").setup({
   -- automatically check for plugin updates
   -- checker = { enabled = true },
   -- TODO: enable this later?
-  change_detection = { enabled = false }
+  change_detection = { enabled = false },
+  install = {
+    -- colorscheme that'll be used when installing plugins
+    colorscheme = { "catppuccin-macchiato", "habamax" }
+  },
+  -- automatically check for plugin updates
+  checker = { enabled = false }
 })
