@@ -5,16 +5,24 @@
 return {
   "williamboman/mason.nvim", name = "mason",
   dependencies = {
-    "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig"
+    "williamboman/mason-lspconfig.nvim", -- predefined lsp configs for mason
+    "neovim/nvim-lspconfig", -- predefined lsp configs for neovim
+    "jay-babu/mason-nvim-dap.nvim" -- for managing DAP with mason
   },
   config = function()
-    require("mason").setup({})
+    require("mason").setup()
 
     require("mason-lspconfig").setup({
       ensure_installed = {
         "lua_ls", "clangd", "jedi_language_server", "cmake", "ts_ls", "bashls",
         "pyright" -- for python
+      },
+      automatic_installation = true
+    })
+
+    require('mason-nvim-dap').setup({
+      ensure_installed = {
+        "codelldb", -- for debugging C, C++
       },
       automatic_installation = true
     })

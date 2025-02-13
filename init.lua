@@ -6,3 +6,6 @@ require("plugin-manager")
 
 -- setup any lsp settings
 require("configs.lsp")
+
+-- setup any dap settings
+require("configs.dap")
