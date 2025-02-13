@@ -41,7 +41,7 @@ return {
       component_separators = { left = "", right = ""},
       section_separators = { left = "", right = ""},
       disabled_filetypes = {
-        statusline = {"NvimTree", "Outline"},
+        statusline = {"NvimTree", "Outline", "fugitiveblame"},
         winbar = {"Dap Scopes"},
       },
       ignore_focus = {
@@ -78,7 +78,6 @@ return {
       lualine_x = {"filetype"},
       lualine_y = {custom_file_info},
       lualine_z = {custom_file_position}
-      -- lualine_z = {"location"}
     },
     inactive_sections = {
       lualine_a = {},
