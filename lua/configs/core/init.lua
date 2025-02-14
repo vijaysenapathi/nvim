@@ -6,3 +6,6 @@ require("configs.core.keymaps")
 
 -- custom settings for showing diagnostics
 require("configs.core.diagnostics")
+
+-- custom autocommands for vanilla features
+require("configs.core.autocmds")

@@ -28,3 +28,18 @@ vim.keymap.set("n", "<leader>t$", ":tabmove $<CR>") -- move the current tab to t
 -- For command mode
 -- bring cursor to the start in command mode
 vim.keymap.set("c", "<C-A>", "<Home>", { noremap = true, silent = false })
+
+
+-- clear highlights of search after pressing <Esc> in normal mode
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
+
+-- diagnostics
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+
+
+-- disable arrow keys in normal mode
+vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move to the left"<CR>')
+vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move to the right"<CR>')
+vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move up"<CR>')
+vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move down"<CR>')

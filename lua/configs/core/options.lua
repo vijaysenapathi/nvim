@@ -53,7 +53,8 @@ local options = {
   -- sets the shell path from the global settings
   shell = vim.g.shell or vim.env.SHELL,
 
-  list = true,
+  -- show tabs and trailing spaces as characters
+  list = false,
   listchars = { tab = '>-<', trail = '-', nbsp = '+' },
 
   exrc = true,           -- Enabling project specific configuration to be set

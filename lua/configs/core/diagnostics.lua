@@ -2,6 +2,7 @@
 -- disables diagnostic info to the left of the numbers
 -- but makes line numbers highlighted
 vim.diagnostic.config({
+  underline = false,
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = "",
@@ -14,7 +15,6 @@ vim.diagnostic.config({
       [vim.diagnostic.severity.ERROR] = "ErrorMsg",
       [vim.diagnostic.severity.INFO] = "DiagnosticInfo",
       [vim.diagnostic.severity.HINT] = "DiagnosticHint",
-
     },
   },
 })
