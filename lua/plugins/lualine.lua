@@ -28,6 +28,7 @@ local function custom_file_position()
 end
 
 
+-- TODO: remove all commented out configuration contents
 return {
   "nvim-lualine/lualine.nvim", name = "lualine", lazy = false,
   dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -39,19 +40,22 @@ return {
       section_separators = { left = "", right = ""},
       disabled_filetypes = {
         statusline = {"NvimTree", "Outline", "fugitiveblame"},
-        winbar = {"Dap Scopes"},
+        winbar = {
+          -- "Dap Scopes"
+        },
       },
       ignore_focus = {
-        "dapui_watches", "dapui_breakpoints",
-        "dapui_scopes", "dapui_console",
-        "dapui_stacks", "dap-repl"
+        -- "dapui_watches", "dapui_breakpoints",
+        -- "dapui_scopes", "dapui_console",
+        -- "dapui_stacks", "dap-repl"
       },
       always_divide_middle = true,
+      always_show_tabline = true,
       globalstatus = false,
       refresh = {
-        statusline = 1000,
-        tabline = 1000,
-        winbar = 1000,
+        statusline = 100,
+        tabline = 100,
+        winbar = 100,
       }
     },
     sections = {
@@ -77,15 +81,27 @@ return {
       lualine_z = {custom_file_position}
     },
     inactive_sections = {
-      lualine_a = {},
+      lualine_a = {""},
       lualine_b = {},
-      -- lualine_c = {"filename"},
-      -- lualine_x = {"location"},
+      lualine_c = {"filename"},
+      lualine_x = {"location"},
       lualine_y = {},
       lualine_z = {}
     },
-    winbar = {},
-    inactive_winbar = {},
-    extensions = {}
-  }
+    tabline = {
+      lualine_a = {{
+        "buffers",
+        symbols = {
+          modified = ' ',      -- Text to show when the buffer is modified
+          alternate_file = ' ', -- Text to show to identify the alternate file
+          directory =  '',     -- Text to show when the buffer is a directory
+        },
+      }
+    },
+    lualine_z = {"tabs"}
+  },
+  winbar = {},
+  inactive_winbar = {},
+  extensions = {}
+}
 }

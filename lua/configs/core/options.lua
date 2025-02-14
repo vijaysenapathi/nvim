@@ -25,7 +25,6 @@ local options = {
   -- TODO: move this to user settings
   shell = "/opt/homebrew/bin/fish", -- default shell to fish
 
-
   exrc = true,           -- Enabling project specific configuration to be set
   secure = true         -- disabling random shell scripts to be run from files
 }
