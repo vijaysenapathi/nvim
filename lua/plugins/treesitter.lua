@@ -3,12 +3,16 @@
 
 return {
   "nvim-treesitter/nvim-treesitter", name = "treesitter",
+  build = ":TSUpdate",
+  main = "nvim-treesitter.configs",
   opts = {
     ensure_installed = {
-      "vimdoc", "lua", "python",
-      "c", "cpp", "cmake",
-      "typescript", "javascript",
-      "markdown",
+      "lua", "luadoc", "query",
+      "vim", "vimdoc",
+      "bash", "c", "cpp", "cmake",
+      "html", "typescript", "javascript",
+      "markdown", "markdown_inline",
+      "python"
     },
     ignore_install = {},
     sync_install = false,

@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+-- TODO: add good pneomonic descriptions
 
 -- TODO: understand and comment what the below two are for
 vim.keymap.set("n", "j", "gj")
