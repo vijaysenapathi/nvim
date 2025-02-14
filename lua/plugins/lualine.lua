@@ -14,9 +14,6 @@ local function custom_file_position()
   local total_buffer_lines = vim.api.nvim_buf_line_count(0)
   local percentage = math.floor(100 * row / total_buffer_lines)
 
-  -- Commented these out as they are causing a buggy lualine
-  -- local fancy_seperator1 = "%% "
-  -- local fancy_seperator2 = "☰ :"
   local fancy_seperator1 = "%% 󰉸 "
   local fancy_seperator2 = " 󰹳 "
 
