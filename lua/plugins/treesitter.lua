@@ -4,11 +4,11 @@
 return {
   "nvim-treesitter/nvim-treesitter", name = "treesitter",
   opts = {
-    ensure_installed = { 
+    ensure_installed = {
       "vimdoc", "lua", "python",
       "c", "cpp", "cmake",
       "typescript", "javascript",
-      "markdown", 
+      "markdown",
     },
     ignore_install = {},
     sync_install = false,

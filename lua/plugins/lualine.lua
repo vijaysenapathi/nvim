@@ -28,19 +28,6 @@ local function custom_file_position()
 end
 
 
-local function centered_winbar()
-  local win_width = vim.api.nvim_win_get_width(0)
-  local text = "%f"  -- This shows the filename
-
-  -- Calculate padding needed to center text
-  local padding = math.floor((win_width - #vim.fn.expand('%:t')) / 2)
-
-  -- Return centered winbar text
-  return string.rep(" ", math.max(0, padding)) .. text
-end
-
-
--- TODO: remove all commented out configuration contents
 return {
   "nvim-lualine/lualine.nvim", name = "lualine", lazy = false,
   dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -83,10 +70,10 @@ return {
       lualine_c = {{
         "filename",
         symbols = {
-          modified = ' ',      -- Text to show when the file is modified.
-          readonly = '',      -- Text to show when the file is non-modifiable or readonly.
-          unnamed = '[No Name]', -- Text to show for unnamed buffers.
-          newfile = '[New]',     -- Text to show for newly created file before first write
+          modified = ' ',
+          readonly = '',
+          unnamed = '[No Name]',
+          newfile = '[New]',
         }
 
       }},
@@ -100,10 +87,10 @@ return {
       lualine_c = {{
         "filename",
         symbols = {
-          modified = ' ',      -- Text to show when the file is modified.
-          readonly = '',      -- Text to show when the file is non-modifiable or readonly.
-          unnamed = '[No Name]', -- Text to show for unnamed buffers.
-          newfile = '[New]',     -- Text to show for newly created file before first write
+          modified = ' ',
+          readonly = '',
+          unnamed = '[No Name]',
+          newfile = '[New]',
         }
 
       }},
@@ -116,9 +103,9 @@ return {
         {
           "buffers",
           symbols = {
-            modified = ' ',      -- Text to show when the buffer is modified
-            alternate_file = ' ', -- Text to show to identify the alternate file
-            directory =  '',     -- Text to show when the buffer is a directory
+            modified = ' ',
+            alternate_file = ' ',
+            directory =  ''
           },
         }
       },
@@ -126,8 +113,7 @@ return {
         {
           "tabs",
           symbols = {
-            modified = ' ',  -- Text to show when the file is modified.
-          }
+            modified = ' '          }
         }
       }
     },

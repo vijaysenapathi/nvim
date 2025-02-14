@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = "\\"
 
 
 -- TODO: understand and comment what the below two are for
@@ -23,3 +23,8 @@ vim.keymap.set("n", "<leader>tH", ":tabmove -<CR>") -- move the current tab to t
 vim.keymap.set("n", "<leader>tL", ":tabmove +<CR>") -- move the current tab to the right
 vim.keymap.set("n", "<leader>t0", ":tabmove 0<CR>") -- move the current tab to the first
 vim.keymap.set("n", "<leader>t$", ":tabmove $<CR>") -- move the current tab to the last
+
+
+-- For command mode
+-- bring cursor to the start in command mode
+vim.keymap.set("c", "<C-A>", "<Home>", { noremap = true, silent = false })
