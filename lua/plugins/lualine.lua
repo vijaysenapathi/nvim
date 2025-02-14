@@ -2,6 +2,38 @@
 -- source: https://github.com/nvim-lualine/lualine.nvim
 
 
+local icons = {}
+if vim.g.nerd_font_enabled then
+  icons.component_separators = { left = "", right = ""}
+  icons.section_separators = { left = "", right = ""}
+  icons.diagnostics_symbol = "■ "
+  icons.file_modified = " "
+  icons.file_readonly = ""
+  icons.buffer_modified = " "
+  icons.buffer_last = " "
+  icons.buffer_directory = ""
+  icons.tab_modified = " "
+  icons.seperator1 = "%% 󰉸 "
+  icons.seperator2 = " 󰹳 "
+  icons.seperator_by = "/"
+  icons.nothing = "󰎂"
+else
+  icons.component_separators = { left = "", right = ""}
+  icons.section_separators = { left = "", right = ""}
+  icons.diagnostics_symbol = "#"
+  icons.file_modified = "[+]"
+  icons.file_readonly = "[-]"
+  icons.buffer_modified = " +"
+  icons.buffer_last = "# "
+  icons.buffer_directory = ""
+  icons.tab_modified = " +"
+  icons.seperator1 = "%% |"
+  icons.seperator2 = "|"
+  icons.seperator_by = "/"
+  icons.nothing = "*"
+end
+
+
 local function custom_file_info()
   local buffer = vim.bo
   return buffer.fileencoding .."[".. buffer.fileformat.."]"
@@ -9,23 +41,38 @@ end
 
 
 local function custom_file_position()
+  ---@type integer|string, integer|string
   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
   col = col + 1
-  local total_buffer_lines = vim.api.nvim_buf_line_count(0)
-  local percentage = math.floor(100 * row / total_buffer_lines)
 
-  local fancy_seperator1 = "%% 󰉸 "
-  local fancy_seperator2 = " 󰹳 "
+  --@type integer|string
+  local lines = vim.api.nvim_buf_line_count(0)
 
-  -- have a minimum of 3 padded space for percentage
-  local percent_padded = string.format("%s", percentage)
+  --@type integer|string
+  local percentage = math.floor(100 * row / lines)
 
-  local status = percent_padded .. fancy_seperator1
-  status = status .. row .. "/" .. total_buffer_lines .. fancy_seperator2
-  status = status .. col
+  ---@type integer|string
+  local current_line_length = #vim.api.nvim_get_current_line()
+  if current_line_length == 0 then
+    current_line_length = icons.nothing
+    col = 0
+  end
+
+  -- minimum of 2 padding for each of the numbers
+  percent = string.format("%2s", percentage)
+  row = string.format("%2s", row)
+  col = string.format("%2s", col)
+  lines = string.format("%-2s", lines)
+  current_line_length = string.format("%-2s", current_line_length)
+
+  local status = percent .. icons.seperator1
+  status = status .. row .. icons.seperator_by .. lines .. icons.seperator2
+  status = status .. col .. icons.seperator_by .. current_line_length
 
   return status
 end
+
+
 
 
 return {
@@ -36,8 +83,8 @@ return {
       options = {
         icons_enabled = true,
         theme = "catppuccin",
-        component_separators = { left = "", right = ""},
-        section_separators = { left = "", right = ""},
+        component_separators = icons.component_separators,
+        section_separators = icons.section_separators,
         disabled_filetypes = {
           statusline = {"NvimTree", "Outline", "fugitiveblame"},
         },
@@ -61,18 +108,18 @@ return {
           {
             "diagnostics",
             symbols = {
-              error = "■ ",
-              warn = "■ ",
-              info = "■ ",
-              hint = "■ "
+              error = icons.diagnostics_symbol,
+              warn = icons.diagnostics_symbol,
+              info = icons.diagnostics_symbol,
+              hint = icons.diagnostics_symbol
             },
           }
         },
         lualine_c = {{
           "filename",
           symbols = {
-            modified = ' ',
-            readonly = '',
+            modified = icons.file_modified,
+            readonly = icons.file_readonly,
             unnamed = '[No Name]',
             newfile = '[New]',
           }
@@ -88,8 +135,8 @@ return {
         lualine_c = {{
           "filename",
           symbols = {
-            modified = ' ',
-            readonly = '',
+            modified = icons.file_modified,
+            readonly = icons.file_readonly,
             unnamed = '[No Name]',
             newfile = '[New]',
           }
@@ -104,9 +151,9 @@ return {
           {
             "buffers",
             symbols = {
-              modified = ' ',
-              alternate_file = ' ',
-              directory =  ''
+              modified = icons.buffer_modified,
+              alternate_file = icons.buffer_last,
+              directory =  icons.buffer_directory
             },
           }
         },
@@ -114,7 +161,7 @@ return {
           {
             "tabs",
             symbols = {
-              modified = ' '
+              modified = icons.tab_modified
             }
           }
         }

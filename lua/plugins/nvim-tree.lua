@@ -1,9 +1,12 @@
 -- for better file and folder browsing
 -- source: https://github.com/nvim-tree/nvim-tree.lua
 
+-- TODO: make nerd fonts truly optional here
 return {
   "nvim-tree/nvim-tree.lua", name = "nvim-tree", lazy=false,
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  dependencies = {
+    { "nvim-tree/nvim-web-devicons", optional = true }
+  },
   config = function()
     -- disable netrw
     vim.g.loaded_netrw = 1

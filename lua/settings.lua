@@ -3,7 +3,7 @@
 -- TODO: ensure the false state is used everywhere
 -- enable this to turn on all nerd font features
 ---@type boolean
-vim.g.nerd_font_enabled = true
+vim.g.nerd_font_enabled = false
 
 ---@type string
 vim.g.shell = "/opt/homebrew/bin/fish"
