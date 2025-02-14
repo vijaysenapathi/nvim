@@ -56,7 +56,7 @@ return {
         lualine_b = {
           {
             "branch",
-            draw_empty = true
+            draw_empty = false
           },
           {
             "diagnostics",

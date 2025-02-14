@@ -13,6 +13,9 @@
     - for making neovim look cool
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
     - for `telescope` to search files super fast
+- [make](https://www.gnu.org/software/make/)
+    - needed for making `telescope` fast
 
 
-<!-- TODO: make an intro screen for neovim -->
+### TODO:
+- [ ] make an intro screen for neovim
