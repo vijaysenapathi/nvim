@@ -44,3 +44,5 @@ require("lazy").setup({
   -- automatically check for plugin updates
   checker = { enabled = false }
 })
+
+-- TODO: figure out an intro screen
