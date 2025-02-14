@@ -28,6 +28,18 @@ local function custom_file_position()
 end
 
 
+local function centered_winbar()
+  local win_width = vim.api.nvim_win_get_width(0)
+  local text = "%f"  -- This shows the filename
+
+  -- Calculate padding needed to center text
+  local padding = math.floor((win_width - #vim.fn.expand('%:t')) / 2)
+
+  -- Return centered winbar text
+  return string.rep(" ", math.max(0, padding)) .. text
+end
+
+
 -- TODO: remove all commented out configuration contents
 return {
   "nvim-lualine/lualine.nvim", name = "lualine", lazy = false,
@@ -40,15 +52,8 @@ return {
       section_separators = { left = "", right = ""},
       disabled_filetypes = {
         statusline = {"NvimTree", "Outline", "fugitiveblame"},
-        winbar = {
-          -- "Dap Scopes"
-        },
       },
-      ignore_focus = {
-        -- "dapui_watches", "dapui_breakpoints",
-        -- "dapui_scopes", "dapui_console",
-        -- "dapui_stacks", "dap-repl"
-      },
+      ignore_focus = {},
       always_divide_middle = true,
       always_show_tabline = true,
       globalstatus = false,
@@ -75,7 +80,16 @@ return {
           },
         }
       },
-      lualine_c = {"filename"},
+      lualine_c = {{
+        "filename",
+        symbols = {
+          modified = ' ',      -- Text to show when the file is modified.
+          readonly = '',      -- Text to show when the file is non-modifiable or readonly.
+          unnamed = '[No Name]', -- Text to show for unnamed buffers.
+          newfile = '[New]',     -- Text to show for newly created file before first write
+        }
+
+      }},
       lualine_x = {"filetype"},
       lualine_y = {custom_file_info},
       lualine_z = {custom_file_position}
@@ -83,25 +97,44 @@ return {
     inactive_sections = {
       lualine_a = {""},
       lualine_b = {},
-      lualine_c = {"filename"},
+      lualine_c = {{
+        "filename",
+        symbols = {
+          modified = ' ',      -- Text to show when the file is modified.
+          readonly = '',      -- Text to show when the file is non-modifiable or readonly.
+          unnamed = '[No Name]', -- Text to show for unnamed buffers.
+          newfile = '[New]',     -- Text to show for newly created file before first write
+        }
+
+      }},
       lualine_x = {"location"},
       lualine_y = {},
       lualine_z = {}
     },
     tabline = {
-      lualine_a = {{
-        "buffers",
-        symbols = {
-          modified = ' ',      -- Text to show when the buffer is modified
-          alternate_file = ' ', -- Text to show to identify the alternate file
-          directory =  '',     -- Text to show when the buffer is a directory
-        },
+      lualine_a = {
+        {
+          "buffers",
+          symbols = {
+            modified = ' ',      -- Text to show when the buffer is modified
+            alternate_file = ' ', -- Text to show to identify the alternate file
+            directory =  '',     -- Text to show when the buffer is a directory
+          },
+        }
+      },
+      lualine_z = {
+        {
+          "tabs",
+          symbols = {
+            modified = ' ',  -- Text to show when the file is modified.
+          }
+        }
       }
     },
-    lualine_z = {"tabs"}
-  },
-  winbar = {},
-  inactive_winbar = {},
-  extensions = {}
-}
+    winbar = {
+    },
+    inactive_winbar = {
+    },
+    extensions = {}
+  }
 }
