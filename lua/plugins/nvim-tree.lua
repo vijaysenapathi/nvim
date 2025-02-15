@@ -33,6 +33,13 @@ return {
         },
         root_folder_label = false, -- This disables the root folder name
         icons = {
+          web_devicons = {
+            file = {
+              enable = true,
+              color = true,
+            },
+          },
+          symlink_arrow = "  ",
           show = {
             file = true,
             folder = true,
@@ -41,14 +48,8 @@ return {
           },
           glyphs = {
             folder = {
-              -- arrow_closed = "",
-              -- arrow_open = "",
-              -- default = "󰉋",
-              -- open = "",
               empty = "",
               empty_open = "",
-              -- symlink = "",
-              -- symlink_open = "",
             }
           },
         },
@@ -62,7 +63,7 @@ return {
   end,
   keys = {
     { "<F1>", ":NvimTreeToggle<CR>", desc = "OpenExplorer" },
-    { "<F13>", ":NvimTreeFindFile<CR>", desc = "ShowFileSiblings" },
+    { "<S-F1>", ":NvimTreeFindFile<CR>", desc = "ShowFileSiblings" },
   }
 }
 

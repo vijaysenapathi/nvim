@@ -1,4 +1,5 @@
 -- all keymaps for various lsp functions
+-- TODO: remove these
 
 local set_keymaps = function(_, _)
   vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})

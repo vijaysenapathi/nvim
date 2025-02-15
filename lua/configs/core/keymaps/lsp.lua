@@ -1,44 +1,35 @@
 
 -- TODO: map all the following lsp
---
--- from neovim v0.11.0 docs
--- "grn" is mapped in Normal mode to |vim.lsp.buf.rename()|
--- "gra" is mapped in Normal and Visual mode to |vim.lsp.buf.code_action()|
--- "grr" is mapped in Normal mode to |vim.lsp.buf.references()|
--- "gri" is mapped in Normal mode to |vim.lsp.buf.implementation()|
--- "gO" is mapped in Normal mode to |vim.lsp.buf.document_symbol()|
--- CTRL-S is mapped in Insert mode to |vim.lsp.buf.signature_help()|
---
--- from kickstart
--- jump to definition of word under cursor (telescope lsp definitions)
--- find references of word under cursor (lsp references)
--- jump to implementation of word under cursor (lsp implementations)
--- jump to type of word under cusor (lsp type defition)
--- find all symbols in current documents (lsp document symbols)
---
+-- TODO: figureout what inline hints are
+-- toggle inline hints (lsp inlay_hint enable)
 
+-- displays signature information about the symbol under the cursor in a floating window
+vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "definition on hover" })
 
+-- jump to the definition of the symbol under the cursor
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "[g]oto [d]efinition" })
 
-vim.api.nvim_create_autocmd( "LspAttach", {
-  group = vim.api.nvim_create_augroup("keymaps-on-lsp-attach", {clear = true}),
-  callback = function (event)
+-- jump to the definition of the symbol under the cursor
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "[g]oto [d]eclaration" })
 
-    local map = function (keys, func, desc, mode)
-      -- normal mode by default
-      mode = mode or "n"
-      vim.keymap.set(mode, keys, func, {
-        buffer = event.buffer, desc = desc
-      })
-    end
+-- jumps to the definition of the type of the symbol under the cursor.
+vim.keymap.set("n", "gtd", vim.lsp.buf.declaration, { desc = "[g]oto [t]ype [d]efinition" })
 
-    -- rename all references to symbol under cursor
-    map("<leader>rn", vim.lsp.buf.rename, "[R]e[N]ame")
+-- lists all the references to the symbol under the cursor in the quickfix window
+vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "[g]oto [r]eferences" })
 
-    -- perform code action for issue under cursor
-    map("gra", vim.lsp.buf.code_action, "code ")
+-- lists all the implementations for the symbol under the cursor in the quickfix window.
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "[g]oto [i]mplementations" })
 
-    -- show all references of symbol under cursor
+-- lists all symbols in the current buffer in the quickfix window.
+vim.keymap.set("n", "gfs", vim.lsp.buf.document_symbol, { desc = "[g]oto [f]ile [s]ymbols" })
 
-    -- goto definition of word under cursor
-  end
-})
+-- renames all references to the symbol under the cursor
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "[r]e[n]ame" })
+
+-- selects a code action available at the current cursor position
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "[c]ode [a]ction" })
+
+-- formats a buffer using the attached (and optionally filtered) language server clients.
+vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format, { desc = "[f]ormat [f]ile" })
+

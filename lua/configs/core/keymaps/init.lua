@@ -17,5 +17,8 @@ require("configs.core.keymaps.search")
 -- all keymaps related to diagnostics
 require("configs.core.keymaps.diagnostics")
 
+-- all keymaps related to inbuilt lsp features
+require("configs.core.keymaps.lsp")
+
 -- other keymaps
 require("configs.core.keymaps.misc")

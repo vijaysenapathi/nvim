@@ -20,3 +20,5 @@
 ### TODO:
 - [ ] make an intro screen for neovim
 - [ ] make lsp working status on lualine
+- [ ] implement incremental lsp rename
+- [ ] implement better code action menu with preview

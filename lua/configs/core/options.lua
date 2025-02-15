@@ -43,7 +43,7 @@ local options = {
   updatetime = 250,
 
   -- milliseconds to wait for a mapped sequence to complete
-  timeoutlen = 300,
+  timeoutlen = 1000,
 
   -- case insensitive searching unless one or mode capital letters are in the
   -- search term

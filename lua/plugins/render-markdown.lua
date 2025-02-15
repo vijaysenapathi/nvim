@@ -34,10 +34,8 @@ return {
     latex = { enabled = false },
     on = {
       attach = function (_)
-        print("attached mark")
         vim.cmd("TSBufEnable highlight")
       end,
-      render = function (_) print("rendered mark") end
     }
   },
 }
