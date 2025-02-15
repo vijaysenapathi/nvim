@@ -6,7 +6,7 @@ vim.g.maplocalleader = "\\"
 -- TODO: add good pneomonic descriptions in all of the following
 
 -- keymaps related to navigation
-require("lua.configs.core.keymaps.navigation")
+require("configs.core.keymaps.navigation")
 
 -- keymaps related to command mode
 require("configs.core.keymaps.cmdmode")

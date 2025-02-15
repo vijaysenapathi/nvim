@@ -12,7 +12,7 @@ return {
       "bash", "c", "cpp", "cmake",
       "html", "typescript", "javascript",
       "markdown", "markdown_inline",
-      "python"
+      "python", "latex"
     },
     ignore_install = {},
     sync_install = false,

@@ -19,3 +19,4 @@
 
 ### TODO:
 - [ ] make an intro screen for neovim
+- [ ] make lsp working status on lualine
