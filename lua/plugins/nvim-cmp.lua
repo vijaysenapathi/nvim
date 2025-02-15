@@ -12,10 +12,14 @@ end
 return {
   "hrsh7th/nvim-cmp", name = "nvim-cmp",
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path", "hrsh7th/cmp-cmdline",
-    "hrsh7th/cmp-calc", "folke/lazydev.nvim",
-    { "onsails/lspkind.nvim", name = "lspkind" }
+    "hrsh7th/cmp-nvim-lsp", -- for lsp completions
+    "hrsh7th/cmp-buffer", -- for text in buffer completions
+    "hrsh7th/cmp-path", -- for path completions
+    "hrsh7th/cmp-cmdline",
+    "hrsh7th/cmp-calc",
+    "folke/lazydev.nvim", -- f
+    { "onsails/lspkind.nvim", name = "lspkind" },
+    { 'j-hui/fidget.nvim', config = true, enabled = false },  -- Useful status updates for LSP.
   },
   config = function()
     local cmp = require("cmp")
