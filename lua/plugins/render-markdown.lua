@@ -5,7 +5,7 @@
 return {
   "MeanderingProgrammer/render-markdown.nvim", name = "render-markdown",
   dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
-  enable = false,
+  enabled = true,
   ---@module "render-markdown"
   ---@type render.md.UserConfig
   opts = {

@@ -4,7 +4,7 @@
 
 return {
   "OXY2DEV/helpview.nvim", name = "helpview", lazy = false,
-  dependencies = { "nvim-tree/nvim-web-devicons" }, enable = false,
+  dependencies = { "nvim-tree/nvim-web-devicons" }, enabled = false,
   opts = {
     preview = {
       icon_provider = "devicons",
