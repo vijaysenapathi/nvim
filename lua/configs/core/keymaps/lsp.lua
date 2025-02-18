@@ -1,5 +1,6 @@
 
--- TODO: map all the following lsp
+-- TODO: make relevant keymaps on lsp attach only
+
 -- TODO: figureout what inline hints are
 -- toggle inline hints (lsp inlay_hint enable)
 

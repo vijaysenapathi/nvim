@@ -17,7 +17,7 @@ local options = {
 
   -- makes vim remember undoes even after closing vim by storing it
   -- in an 'undofile'
-  undofile = true,
+  undofile = false,
 
   -- makes tab expand to spaces
   expandtab = true,

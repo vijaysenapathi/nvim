@@ -3,9 +3,9 @@
 
 
 return {
-  "MeanderingProgrammer/render-markdown.nvim", name = "render-markdown",
+  "MeanderingProgrammer/render-markdown.nvim", enabled = true,
+  name = "render-markdown",
   dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
-  enabled = true,
   ---@module "render-markdown"
   ---@type render.md.UserConfig
   opts = {
@@ -13,7 +13,8 @@ return {
     heading = {
       sign = false,
       position = "inline",
-      icons = { " 󰉫 ", " 󰉬 ", " 󰉭 ", " 󰉮 ", " 󰉯 ", " 󰉰 " }
+      -- icons = { " 󰉫 ", " 󰉬 ", " 󰉭 ", " 󰉮 ", " 󰉯 ", " 󰉰 " }
+      icons = { '', '', '', '', '', '' },
     },
     code = {
       style = "full",
