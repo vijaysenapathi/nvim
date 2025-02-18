@@ -10,7 +10,9 @@ end
 
 
 return {
-  "hrsh7th/nvim-cmp", name = "nvim-cmp",
+  "hrsh7th/nvim-cmp",
+  -- dir = { "/Users/neo/Projects/Personal/Repositories/nvim-cmp" },
+  name = "nvim-cmp",
   dependencies = {
     "hrsh7th/cmp-nvim-lsp", -- for lsp completions
     "hrsh7th/cmp-buffer", -- for text in buffer completions
@@ -28,18 +30,40 @@ return {
 
     cmp.setup({
       sources = {
-        { name = 'lazydev', group_index = 0},
+        { name = 'lazydev', group_index = 1},
         { name = 'nvim_lsp', group_index = 1},
         { name = 'luasnip', group_index = 1},
-        { name = 'calc', group_index = 2},
-        { name = 'buffer', group_index = 3},
+        { name = 'buffer', group_index = 2},
       },
       snippet= {
         expand = function(args)
           luasnip.lsp_expand(args.body)
         end
       },
-
+      window = {
+        completion = {
+          border = { '', '', '', '', '', '', '', '' },
+          winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None',
+          scrolloff = 0,
+          col_offset = 0,
+          side_padding = 1,
+          scrollbar = true,
+        },
+        documentation = {
+          border = { '', '', '', ' ', '', '', '', ' ' },
+          winhighlight = 'FloatBorder:NormalFloat',
+        }
+      },
+      performance = {
+        debounce = 60,
+        throttle = 30,
+        fetching_timeout = 500,
+        filtering_context_budget = 3,
+        confirm_resolve_timeout = 80,
+        async_budget = 1,
+        -- default 200
+        max_view_entries = 200,
+      },
       mapping = cmp.mapping.preset.insert {
         ['<C-n>'] = cmp.mapping.select_next_item(),
         ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -71,16 +95,37 @@ return {
       },
       -- TODO: fix the below missing required fields
       formatting = {
+        fields = { 'kind', 'abbr' },
+        -- whether to show ~ for expanding options
+        expandable_indicator = true,
         format = lspkind.cmp_format({
-          mode = 'symbol_text',
-          menu = ({
-            buffer = "[BFR]",
-            nvim_lsp = "[LSP]",
-            luasnip = "[SNIP]",
-            calc = "[CALC]"
-          })
+          mode = 'symbol', -- show only symbol annotations
+          maxwidth = {
+            -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+            -- can also be a function to dynamically calculate max width such as
+            -- menu = function() return math.floor(0.45 * vim.o.columns) end,
+            menu = 50, -- leading text (labelDetails)
+            abbr = 50, -- actual suggestion item
+          },
+          ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+          show_labelDetails = true, -- show labelDetails in menu. Disabled by default
+
+          -- The function below will be called before any actual modifications from lspkind
+          -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+          before = function (entry, vim_item)
+            return vim_item
+          end
         })
+
       },
+      matching = {
+        disallow_fuzzy_matching = true,
+        disallow_fullfuzzy_matching = false,
+        disallow_partial_fuzzy_matching = true,
+        disallow_partial_matching = true,
+        disallow_prefix_unmatching = false,
+        disallow_symbol_nonprefix_matching = false,
+      }
     })
 
 

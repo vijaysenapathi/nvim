@@ -31,7 +31,7 @@ local options = {
   splitright = true,
 
   -- makes the cursor remain in the middle of the page
-  scrolloff = 999,
+  scrolloff = 5,
 
   -- make vim remember a lot
   history = 1000,

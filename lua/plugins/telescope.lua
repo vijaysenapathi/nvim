@@ -30,8 +30,10 @@ return {
     local builtin = require("telescope.builtin")
 
     vim.keymap.set("n", "<leader><space>", builtin.find_files, {})
-    vim.keymap.set("n", "<leader>fcs", builtin.grep_string, {})
-    vim.keymap.set("n", "<leader>fs", builtin.live_grep, {})
+    -- search current string int the entire repo
+    vim.keymap.set("n", "<leader>*", builtin.grep_string, {})
+    -- search in the entire repo
+    vim.keymap.set("n", "<leader>/", builtin.live_grep, {})
     vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
     vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
   end
