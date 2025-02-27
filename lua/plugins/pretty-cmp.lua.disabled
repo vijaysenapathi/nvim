@@ -1,0 +1,9 @@
+-- my custom completion engine
+--
+--
+
+return {
+  dir = "/Users/neo/Projects/Personal/Repositories/pretty-cmp.nvim",
+  name = "pretty", enable = false,
+  config = true
+}

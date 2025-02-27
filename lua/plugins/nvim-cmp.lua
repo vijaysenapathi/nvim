@@ -10,9 +10,9 @@ end
 
 
 return {
-  "hrsh7th/nvim-cmp", enabled = true,
-  -- dir = { "/Users/neo/Projects/Personal/Repositories/nvim-cmp" },
-  name = "nvim-cmp",
+  "hrsh7th/nvim-cmp",
+  -- dir = "/Users/neo/Projects/Personal/Repositories/nvim-cmp",
+  name = "nvim-cmp", enabled = true,
   dependencies = {
     "hrsh7th/cmp-nvim-lsp", -- for lsp completions
     "hrsh7th/cmp-buffer", -- for text in buffer completions

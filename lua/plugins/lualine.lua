@@ -1,11 +1,19 @@
 -- better status line
 -- source: https://github.com/nvim-lualine/lualine.nvim
 
+-- enable arrows in lualine
+local arrowed_boundaries = false
 
 local icons = {}
 if vim.g.nerd_font_enabled then
-  icons.component_separators = { left = "", right = ""}
-  icons.section_separators = { left = "", right = ""}
+  icons.component_separators = {
+    left = arrowed_boundaries and "" or "",
+    right = arrowed_boundaries and "" or ""
+  }
+  icons.section_separators = {
+    left = arrowed_boundaries and "" or "",
+    right = arrowed_boundaries and "" or ""
+  }
   icons.diagnostics_symbol = "■ "
   icons.file_modified = " "
   icons.file_readonly = ""
@@ -27,8 +35,11 @@ else
   icons.buffer_last = "# "
   icons.buffer_directory = ""
   icons.tab_modified = " [+]"
-  icons.seperator1 = "%% |"
-  icons.seperator2 = "|"
+  -- icons.seperator1 = "%% |"
+  -- icons.seperator2 = "|"
+  -- the following two are not from nerd fonts
+  icons.seperator1 = "%% 󰉸 "
+  icons.seperator2 = " 󰹳 "
   icons.seperator_by = "/"
   icons.nothing = "*"
 end
@@ -77,7 +88,7 @@ end
 
 return {
   "nvim-lualine/lualine.nvim", name = "lualine", lazy = false,
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  dependencies = { { "nvim-tree/nvim-web-devicons", optional = true } },
   config = function ()
     require("lualine").setup({
       options = {
@@ -103,6 +114,8 @@ return {
         lualine_b = {
           {
             "branch",
+            icon = vim.g.nerd_font_enabled and "" or "",
+            seperator = nil,
             draw_empty = false
           },
           {

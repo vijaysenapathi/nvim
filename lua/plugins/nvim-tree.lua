@@ -1,6 +1,25 @@
 -- for better file and folder browsing
 -- source: https://github.com/nvim-tree/nvim-tree.lua
 
+local fancy_fonts = vim.g.nerd_font_enabled
+
+local renderer_icons_symlink_arrow = fancy_fonts and "  " or " -> "
+
+local renderer_icons_glyphs = {
+  folder = {
+    empty = fancy_fonts and "" or "",
+    empty_open = fancy_fonts and "" or "",
+  }
+}
+
+local renderer_icons_show = {
+  file = vim.g.nerd_font_enabled,
+  folder = vim.g.nerd_font_enabled,
+  folder_arrow = vim.g.nerd_font_enabled,
+  git = false,
+}
+
+
 -- TODO: make nerd fonts truly optional here
 return {
   "nvim-tree/nvim-tree.lua", name = "nvim-tree", lazy=false,
@@ -39,19 +58,9 @@ return {
               color = true,
             },
           },
-          symlink_arrow = "  ",
-          show = {
-            file = true,
-            folder = true,
-            folder_arrow = true,
-            git = false,
-          },
-          glyphs = {
-            folder = {
-              empty = "",
-              empty_open = "",
-            }
-          },
+          symlink_arrow = renderer_icons_symlink_arrow,
+          show = renderer_icons_show,
+          glyphs = renderer_icons_glyphs
         },
         special_files = {},
       },
